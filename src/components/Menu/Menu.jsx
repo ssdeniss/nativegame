@@ -2,17 +2,24 @@ import React from "react";
 import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
 import { FontStyle } from "../../assets/fonts/Font";
+import { TouchableOpacity } from "react-native";
 
 export const Menu = () => {
   FontStyle();
   const navigation = useNavigation();
   return (
     <MenuList>
-      <MenuItem onPress={() => navigation.navigate("Game")}>Play</MenuItem>
-      <MenuItem onPress={() => navigation.navigate("Settings")}>
-        Settings
-      </MenuItem>
-      <MenuItem onPress={() => navigation.navigate("Music")}>Music</MenuItem>
+      <TouchableOpacity>
+        <MenuItem onPress={() => navigation.navigate("Game")}>Play</MenuItem>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <MenuItem onPress={() => navigation.navigate("Settings")}>
+          Settings
+        </MenuItem>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <MenuItem onPress={() => navigation.navigate("Music")}>Music</MenuItem>
+      </TouchableOpacity>
     </MenuList>
   );
 };

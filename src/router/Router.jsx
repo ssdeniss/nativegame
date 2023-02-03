@@ -7,14 +7,13 @@ import { Settings } from "../screens/Settings/Settings";
 const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
-  
   return (
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{ headerShown: false }}
+          options={({ headerShown: false }, { tabBarVisible: false })}
         />
         <Stack.Screen
           name="Game"

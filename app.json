@@ -26,6 +26,9 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "rnpm": {
+      "assets": ["./src/assets/fonts"]
     }
   }
 }

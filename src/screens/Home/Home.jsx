@@ -3,15 +3,17 @@ import { Menu } from "../../components/Menu/Menu";
 import styled from "styled-components/native";
 import { FontStyle } from "../../assets/fonts/Font";
 import { useNavigation } from "@react-navigation/native";
+import { StatusBar } from "react-native";
 
 export const Home = () => {
-  FontStyle();
   const navigation = useNavigation();
   React.useLayoutEffect(() => {
     navigation.setOptions({ headerShown: false });
   }, [navigation]);
+  FontStyle();
   return (
     <HomeContainer>
+      <StatusBar hidden />
       <HomeTitle>WORMS</HomeTitle>
       <Menu />
     </HomeContainer>
