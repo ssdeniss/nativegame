@@ -2,10 +2,14 @@ import React, { useEffect } from "react";
 import { Menu } from "../../components/Menu/Menu";
 import styled from "styled-components/native";
 import { FontStyle } from "../../assets/fonts/Font";
+import { useNavigation } from "@react-navigation/native";
 
 export const Home = () => {
   FontStyle();
-
+  const navigation = useNavigation();
+  React.useLayoutEffect(() => {
+    navigation.setOptions({ headerShown: false });
+  }, [navigation]);
   return (
     <HomeContainer>
       <HomeTitle>WORMS</HomeTitle>
@@ -19,7 +23,6 @@ const HomeContainer = styled.View`
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 20px;
   height: 100%;
   width: 100%;
 `;

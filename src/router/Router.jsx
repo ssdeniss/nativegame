@@ -7,6 +7,7 @@ import { Settings } from "../screens/Settings/Settings";
 const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
+  
   return (
     <NavigationContainer>
       <Stack.Navigator>
