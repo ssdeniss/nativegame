@@ -31,10 +31,5 @@
   "devDependencies": {
     "@babel/core": "^7.12.9"
   },
-  "rnpm": {
-    "assets": [
-      "./src/assets/fonts"
-    ]
-  },
   "private": true
 }
