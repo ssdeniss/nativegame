@@ -1,8 +1,10 @@
 import React from "react";
 import styled from "styled-components/native";
 import { useNavigation } from "@react-navigation/native";
+import { FontStyle } from "../../assets/fonts/Font";
 
 export const Menu = () => {
+  FontStyle();
   const navigation = useNavigation();
   return (
     <MenuList>
@@ -16,6 +18,8 @@ export const Menu = () => {
 };
 const MenuList = styled.View``;
 const MenuItem = styled.Text`
-  margin-bottom: 10px;
+  font-family: "Game";
+  margin-bottom: 15px;
   font-size: 18px;
+  text-align: center;
 `;
