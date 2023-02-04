@@ -4,8 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 import { FontStyle } from "../../assets/fonts/Font";
 import { TouchableOpacity } from "react-native";
 
-export const Menu = () => {
-  FontStyle();
+export const Menu = ({ setPlayMusic, playMusic }) => {
   const navigation = useNavigation();
   return (
     <MenuList>
@@ -13,7 +12,14 @@ export const Menu = () => {
         <MenuItem onPress={() => navigation.navigate("Game")}>Play</MenuItem>
       </TouchableOpacity>
       <TouchableOpacity>
-        <MenuItem onPress={() => navigation.navigate("Settings")}>
+        <MenuItem
+          onPress={() =>
+            navigation.navigate("Settings", {
+              setPlayMusic: setPlayMusic,
+              playMusic: playMusic,
+            })
+          }
+        >
           Settings
         </MenuItem>
       </TouchableOpacity>

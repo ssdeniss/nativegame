@@ -2,18 +2,25 @@ import styled from "styled-components/native";
 import { BackBtn } from "../../components/BackBtn";
 import { FontStyle } from "../../assets/fonts/Font";
 import { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
+import { TouchableOpacity } from "react-native";
 
-export const Settings = () => {
+export const Settings = (props) => {
   const [sound, setSound] = useState(true);
-  const [music, setMusic] = useState(true);
-
+  const [music, setMusic] = useState(props.route.params.playMusic);
+  console.log(props.route.params, "music");
   const handleSound = () => {
-    setSound(!sound);
+    props.route.params.setPlayMusic(true);
   };
   const handleMusic = () => {
-    setMusic(!music);
+    if (music) {
+      props.route.params.setPlayMusic(false);
+      setMusic(false);
+    } else {
+      props.route.params.setPlayMusic(true);
+      setMusic(true);
+    }
   };
+
   FontStyle();
   return (
     <Container>
@@ -35,7 +42,7 @@ export const Settings = () => {
         >
           <SettingItems>Music</SettingItems>
           <SettingsImage source={require("../../assets/icons/music.png")} />
-          {music && <SettingsImageAfterMusic />}
+          {!music && <SettingsImageAfterMusic />}
         </TouchableOpacity>
       </SettingsContainer>
     </Container>

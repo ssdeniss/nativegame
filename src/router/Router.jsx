@@ -4,6 +4,7 @@ import { Home } from "../screens/Home/Home";
 import { Game } from "../screens/Game/Game";
 import { Music } from "../screens/Music/Music";
 import { Settings } from "../screens/Settings/Settings";
+
 const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
