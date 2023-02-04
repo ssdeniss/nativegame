@@ -17,6 +17,7 @@ export const Settings = (props) => {
       setMusic(false);
     } else {
       props.route.params.setPlayMusic(true);
+      
       setMusic(true);
     }
   };
