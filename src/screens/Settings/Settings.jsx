@@ -1,52 +1,64 @@
 import styled from "styled-components/native";
 import { BackBtn } from "../../components/BackBtn";
-import { FontStyle } from "../../assets/fonts/Font";
 import { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import { TouchableOpacity, View } from "react-native";
 
 export const Settings = (props) => {
-  const [sound, setSound] = useState(true);
-  const [music, setMusic] = useState(props.route.params.playMusic);
-  console.log(props.route.params, "music");
+  const [sound, setSound] = useState(props?.route?.params?.clickEffect);
+  const [music, setMusic] = useState(props?.route?.params?.playMusic);
+  const clickSimulate = props.route.params.clickSimulate;
   const handleSound = () => {
-    props.route.params.setPlayMusic(true);
+    if (sound) {
+      props?.route?.params?.setClickEffect(false);
+      setSound(false);
+    } else {
+      props?.route?.params?.setClickEffect(true);
+      setSound(true);
+      clickSimulate();
+    }
   };
   const handleMusic = () => {
     if (music) {
-      props.route.params.setPlayMusic(false);
+      props?.route?.params?.setPlayMusic(false);
       setMusic(false);
     } else {
-      props.route.params.setPlayMusic(true);
-      
+      props?.route?.params?.setPlayMusic(true);
       setMusic(true);
+    }
+    if (sound) {
+      clickSimulate();
     }
   };
 
-  FontStyle();
   return (
-    <Container>
-      <BackBtn />
-      <SettingsContainer>
-        <SettingTitles>Settings</SettingTitles>
-        <TouchableOpacity
-          style={{ flexDirection: "row", position: "relative" }}
-          onPress={() => handleSound()}
-        >
-          <SettingItems>Sound</SettingItems>
+    <SettingsContainerComponent>
+      <MenuBackground
+        source={require("../../assets/images/backgroundMenu.png")}
+      />
+      <Container>
+        <BackBtn clickSimulate={clickSimulate} />
+        <SettingsContainer>
+          <SettingTitles>Settings</SettingTitles>
+          <TouchableOpacity
+            style={{ flexDirection: "row", position: "relative" }}
+            onPress={() => handleSound()}
+          >
+            <SettingItems>Sound</SettingItems>
 
-          <SettingsImage source={require("../../assets/icons/sound.png")} />
-          {sound && <SettingsImageAfter />}
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={{ flexDirection: "row", position: "relative" }}
-          onPress={() => handleMusic()}
-        >
-          <SettingItems>Music</SettingItems>
-          <SettingsImage source={require("../../assets/icons/music.png")} />
-          {!music && <SettingsImageAfterMusic />}
-        </TouchableOpacity>
-      </SettingsContainer>
-    </Container>
+            <SettingsImage source={require("../../assets/icons/sound.png")} />
+            {!sound && <SettingsImageAfter />}
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{ flexDirection: "row", position: "relative" }}
+            onPress={() => handleMusic()}
+          >
+            <SettingItems>Music</SettingItems>
+            <SettingsImage source={require("../../assets/icons/music.png")} />
+            {!music && <SettingsImageAfterMusic />}
+          </TouchableOpacity>
+        </SettingsContainer>
+      </Container>
+    </SettingsContainerComponent>
   );
 };
 
@@ -96,4 +108,16 @@ const SettingsImageAfterMusic = styled.Image`
   position: absolute;
   right: 18px;
   top: -4px;
+`;
+const MenuBackground = styled.Image`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 10px;
+  top: 0;
+`;
+
+const SettingsContainerComponent = styled.View`
+  width: 100%;
+  height: 100%;
 `;

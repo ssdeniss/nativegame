@@ -1,10 +1,10 @@
 {
   "expo": {
-    "name": "nativegame",
-    "slug": "nativegame",
+    "name": "worms",
+    "slug": "wormsapp",
     "version": "1.0.0",
     "orientation": "landscape",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/logo.png",
     "userInterfaceStyle": "dark",
     "splash": {
       "image": "./assets/splash.png",
@@ -14,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true
     },
@@ -22,13 +24,24 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.wormix.worm"
     },
     "web": {
       "favicon": "./assets/favicon.png"
     },
     "rnpm": {
-      "assets": ["./src/assets/fonts"]
+      "assets": [
+        "./src/assets/fonts"
+      ]
+    },
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8e54ca98-2743-485a-82ca-5abbfb0f988c"
+      }
     }
   }
 }

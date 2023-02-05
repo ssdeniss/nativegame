@@ -4,6 +4,7 @@ import { Home } from "../screens/Home/Home";
 import { Game } from "../screens/Game/Game";
 import { Music } from "../screens/Music/Music";
 import { Settings } from "../screens/Settings/Settings";
+import { BtDevices } from "../screens/BtDevices/BtDevices";
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,11 @@ export const Navigation = () => {
         <Stack.Screen
           name="Settings"
           component={Settings}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Devices"
+          component={BtDevices}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
